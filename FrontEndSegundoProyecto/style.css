@@ -1,0 +1,609 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin-top: 120px;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "article-1 article-1 article-1"
+    "aside-1 aside-1 aside-1"
+    "article-2 article-2 article-2"
+    "aside-2 aside-2 aside-2"
+    "article-3 article-3 article-3"
+    "aside-3 aside-3 aside-3"
+    "article-4 article-4 article-4"
+    "aside-4 aside-4 aside-4"
+    "article-5 article-5 article-5"
+    "aside-5 aside-5 aside-5"
+    "article-6 article-6 article-6"
+    "aside-6 aside-6 aside-6"
+    "article-7 article-7 article-7"
+    "aside-7 aside-7 aside-7"
+    "article-8 article-8 article-8"
+    "aside-8 aside-8 aside-8"
+    "article-9 article-9 article-9"
+    "aside-9 aside-9 aside-9"
+    "footer footer footer";
+  color: white;
+  text-align: center;
+  background-color: rgb(199, 199, 199);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* INICIO MENU */
+header {
+  width: 100%;
+  height: 80px;
+  display: grid;
+  grid-area: header;
+  grid-template-areas:
+    "menu logo buscador usuario"
+    "categories categories categories categories";
+  grid-template-columns: 5% 20% 50% 25%;
+  background-color: rgb(58, 58, 58);
+  position: fixed;
+  top: 0;
+}
+
+.hamburger-menu {
+  grid-area: menu;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  text-align: start;
+  
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+
+.menu__btn {
+  position: fixed;
+  top: 38px;
+  left: 30px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition-duration: .25s;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 125px;
+  left: -100%;
+  width: 260px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: rgb(58, 58, 58);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: .25s;
+  border-top: white;
+}
+
+.menu__item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+.menu__item:hover {
+  background-color: rgb(38, 38, 38);
+  color: red;
+}
+
+ul li span {
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  margin-right: 10px;
+}
+/* FIN MENU */
+
+/* LOGO */
+.logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#logoYt-1 {
+  width: 80px;
+  height: 60px;
+  margin-left: 5px;
+  z-index: 1;
+}
+
+#conYt2 {
+  width: 70px;
+  height: auto;
+  align-items: center;
+  overflow: hidden;
+  animation: logoYt 15s infinite;
+}
+
+#logoYt-2 {
+  width: 70px;
+  height: auto;
+} 
+
+@keyframes logoYt {
+  0%{
+    margin-left: -80px;
+  }  
+  10%{
+    margin-left: -80px;
+  }  
+  20%{
+    margin-left: -80px;
+  }  
+  30%{
+    margin: 0;
+  }  
+  40%{
+    margin: 0;
+  }  
+  50%{
+    margin: 0;
+  }
+  60%{
+    margin: 0;
+  }  
+  70%{
+    margin: 0;
+  }  
+  80%{
+    margin-left: -80px;
+  }  
+  90%{
+    margin-left: -80px;
+  }  
+  100%{
+    margin-left: -80px;
+  }
+}
+/* FIN LOGO */
+
+/* BUSCADOR */
+.buscador {
+  grid-area: buscador;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+}
+
+.buscador .input {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: 1px solid silver;
+  font-size: 18px;
+  outline: none;
+  box-shadow: 0px 0px 6px white;
+  text-align: center;
+}
+
+.input-group{
+  position: relative;
+  color: black;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: 1px solid silver;
+  font-size: 18px;
+  outline: none;
+  box-shadow: 0px 0px 6px white;
+  text-align: center;
+}
+
+.input{
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  color: black;
+  background-color: transparent;
+  outline: 2px solid #fff;
+}
+
+.input-label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  transition: transform .25s;
+}
+
+.buscador .input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(10px, 10px);
+  outline: 2px solid #fff;
+  justify-content: center;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label {
+  transform: 
+  translate(10px, -10px)
+  scale(.8);
+  color:white;
+  padding-inline: 5px;
+  background-color: #242329;
+  box-shadow: 0px 0px 6px white;
+}
+
+.input:is(:focus, :valid){
+  outline-color: #d1c5fc;
+}
+
+#btnsrc{
+  height: 40px;
+  padding: 5.8px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 6px white;
+  background-color: rgb(218, 218, 218);
+  color: #55828B;
+}
+
+#btnsrc:hover {
+  background-color: rgb(38, 38, 38);
+  color: red;
+  cursor: pointer;
+}
+
+#btnmicro{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+#btnmicro:hover{
+  transform: scale(1.7);
+}
+
+#btnmicro:active{
+  animation-name: sombra;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sombra {
+  0%{
+    color: grey;
+  }
+  50%{
+    color: red;
+  }
+}
+/* FIN BUSCADOR */
+
+/* USUARIO Y ACCIONES */
+.usuario {
+  height: 80px;
+  width: 100%;
+  grid-area: usuario;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;  
+}
+
+.usuario > button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-right: 15px;
+  height: 25px;
+  width: auto;
+}
+
+#transmitir{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+#transmitir:hover{
+  transform: scale(1.3);
+  text-shadow: 0px 0px 6px white;
+}
+
+#subirShort{
+  width: 28px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#subirShort:hover{
+  transform: scale(1.3);
+}
+
+#subirVideo{
+  width: 28px;
+  height: auto;
+  margin-right: 15px;
+}
+
+#subirVideo:hover{
+  transform: scale(1.3);
+}
+
+#cuenta {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px black;
+}
+/* FIN USUARIO Y ACCIONES */
+
+/* SUBMENUS */
+.categories {
+  grid-area: categories;
+  display: flex;
+  height: 45px;
+  background-color: rgb(58, 58, 58);
+  align-items: center;
+  justify-content: center;
+}
+
+.categories > a:link, a:visited, a:active {
+  height: 30px;
+  margin: 0 20px;
+  padding: 4px 10px 0 10px;
+  text-align: center;
+  background-color: rgb(78, 78, 78);
+  color: white;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 15px;
+  font-size: large;
+  text-decoration:none;
+}
+
+.categories > a:hover {
+  background-color: rgb(128, 128, 128);
+  transform: scale(1.2);
+  color: white;
+}
+/* FIN SUBMENUS */
+
+/* SECCION MUSICA */
+.musica {
+  grid-area: article-1;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+#logoMusica {
+  width: 25px;
+  height: auto;
+  margin: 0 8px;
+}
+
+.musica h3 a{
+  color: red;
+  text-decoration: none;
+}
+
+.videos-musica {
+  grid-area: aside-1;
+  height: 170px;
+  background-color: rgb(58, 58, 58);
+}
+
+.videos-musica > iframe {
+  margin: 10px 15px
+}
+/* FIN SECCION MUSICA */
+
+/* SECCION JUEGOS */
+.juegos {
+  grid-area: article-2;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+#logoJuegos {
+  height: 25px;
+  width: 30px;
+  margin: 0 8px;
+}
+
+.juegos h3 a{
+  color: red;
+  text-decoration: none;
+}
+
+.videos-juegos{
+  grid-area: aside-2;
+  height: 170px;
+  background-color: rgb(58, 58, 58);
+}
+
+.videos-juegos > iframe {
+  margin: 10px 15px
+}
+/* FIN SECCION JUEGOS */
+
+/* SECCION PELICULAS */
+.peliculas {
+  grid-area: article-3;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+#logoPelicula {
+  width: 30px;
+  height: auto;
+  margin: 0 8px;
+}
+
+.peliculas h3 a{
+  color: red;
+  text-decoration: none;
+}
+
+.videos-peliculas {
+  grid-area: aside-3;
+  height: 170px;
+  background-color: rgb(58, 58, 58);
+}
+
+.videos-peliculas > iframe {
+  margin: 10px 15px
+}
+/* FIN SECCION PELICULAS */
+
+/* SECCION DEPORTES */
+.deportes {
+  grid-area: article-4;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+#logoDeporte {
+  width: 30px;
+  height: auto;
+  margin: 0 8px;
+}
+
+.deportes h3 a{
+  color: red;
+  text-decoration: none;
+}
+
+.videos-deportes {
+  grid-area: aside-4;
+  height: 170px;
+  background-color: rgb(58, 58, 58);
+}
+
+.videos-deportes > iframe {
+  margin: 10px 15px
+}
+/* FIN SECCION DEPORTES */
+
+/* SECCION NIÑOS */
+.kids {
+  grid-area: article-5;
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  font-size: 20px;
+}
+
+#logoNiños {
+  width: 25px;
+  height: auto;
+  margin: 0 8px;
+}
+
+.kids h3 a{
+  color: red;
+  text-decoration: none;
+}
+
+.videos-kids {
+  grid-area: aside-5;
+  height: 170px;
+  background-color: rgb(58, 58, 58);
+}
+
+.videos-kids > iframe {
+  margin: 10px 15px
+}
+/* FIN SECCION NIÑOS */
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  padding: 15px 0;
+  background-color: rgb(38, 38, 38);
+  border-top: 4px solid rgb(128, 128, 128);;
+}
+
+.footer a{
+  text-decoration: none;
+}
+
+.footer li{
+  display: inline;
+}
+/* FIN FOOTER */
